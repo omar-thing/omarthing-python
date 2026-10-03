@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omarthing"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python client for the unofficial TikTok API: profiles, followers, videos, comments, live data and search."
 readme = "README.md"
 requires-python = ">=3.8"

@@ -69,6 +69,13 @@ class ClientTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 Client()
 
+    def test_redirects_are_not_followed(self):
+        c, s = client(Resp(302, None, {"Location": "https://evil.example/"}))
+        with self.assertRaises(OmarThingError) as cm:
+            c.usage()
+        self.assertEqual(cm.exception.code, "REDIRECT")
+        self.assertIs(s.get.call_args[1]["allow_redirects"], False)
+
 
 if __name__ == "__main__":
     unittest.main()

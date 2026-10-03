@@ -46,7 +46,9 @@ class Client(_Endpoints):
         headers = {"X-API-Key": self.api_key}
         for attempt in range(self.retries + 1):
             try:
-                r = self.session.get(url, params=params, headers=headers, timeout=self.timeout)
+                # never follow redirects: the key header would be forwarded to the new host
+                r = self.session.get(url, params=params, headers=headers, timeout=self.timeout,
+                                     allow_redirects=False)
             except (requests.ConnectionError, requests.Timeout):
                 if attempt == self.retries:
                     raise
@@ -60,6 +62,8 @@ class Client(_Endpoints):
                 time.sleep(wait)
                 continue
             break
+        if 300 <= r.status_code < 400:
+            raise OmarThingError(r.status_code, "REDIRECT", "unexpected redirect, not following it")
         try:
             body = r.json()
         except ValueError:
