@@ -1,25 +1,31 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "omarthing"
 version = "0.1.0"
-description = "Python client for the Omar-Thing unofficial TikTok API: profiles, followers, videos, comments, live chat and search."
+description = "Python client for the unofficial TikTok API: profiles, followers, videos, comments, live data and search."
 readme = "README.md"
 requires-python = ">=3.8"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Omar-Thing" }]
 dependencies = ["requests>=2.25"]
 keywords = ["tiktok", "tiktok-api", "unofficial-tiktok-api", "tiktok-scraper", "tiktok-live", "tiktok-comments"]
 classifiers = [
-  "License :: OSI Approved :: MIT License",
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
   "Topic :: Internet :: WWW/HTTP",
 ]
 
 [project.urls]
 Homepage = "https://dev.omar-thing.site"
 Documentation = "https://dev.omar-thing.site/docs.html"
+Source = "https://github.com/omar-thing/omarthing-python"
+Issues = "https://github.com/omar-thing/omarthing-python/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
