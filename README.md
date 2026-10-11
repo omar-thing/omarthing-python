@@ -98,7 +98,6 @@ Parameters for each endpoint are documented at https://dev.omar-thing.site/docs.
 
 | Method (`*` = required) | What it does |
 |---|---|
-| `related_searches(*video, query, format)` | Related search terms suggested under a video ("others searched for"). |
 | `search_hashtags(*query, cursor, format)` | Search hashtags (one page per call, cursor-paginated). |
 | `search_music(*query, cursor, format)` | Search sounds/music (one page per call, cursor-paginated). |
 | `search_photos(*query, cursor, format)` | Search photo/slideshow posts (one page per call, cursor-paginated). |
